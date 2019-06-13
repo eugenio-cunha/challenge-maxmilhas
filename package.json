@@ -1,0 +1,32 @@
+{
+  "name": "challenge",
+  "version": "1.0.0",
+  "description": "Desafio maxmilhas",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=test mocha --exit",
+    "lint": "eslint '**/*.js' --fix",
+    "start": "node src/index"
+  },
+  "keywords": [
+    "challenge"
+  ],
+  "author": "Eugenio Cunha <eugenio.cunha@ymail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^6.2.0",
+    "eslint": "^5.15.3",
+    "eslint-plugin-prettier": "^3.0.1",
+    "mocha": "^5.2.0",
+    "prettier": "^1.16.4",
+    "request": "^2.88.0"
+  },
+  "dependencies": {
+    "async": "^3.0.1",
+    "ejs": "^2.6.1",
+    "express": "^4.17.1",
+    "pg": "^7.11.0"
+  }
+}

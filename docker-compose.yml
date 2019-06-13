@@ -1,0 +1,51 @@
+version: "3.7"
+
+services:
+  postgresql:
+    build: ./postgres
+    restart: on-failure
+    volumes:
+      - challenge-postgres:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    env_file:
+      - .env
+    networks:
+      - challenge-network
+    deploy:
+      mode: replicated
+      replicas: 1
+      labels: [APP=PG]
+      restart_policy:
+        condition: on-failure
+        delay: 10s
+        max_attempts: 3
+        window: 120s
+
+  challenge:
+    build: .
+    depends_on:
+      - postgresql
+    cap_add:
+      - SYS_ADMIN
+    ports:
+      - 3000:3000
+    env_file:
+      - .env
+    networks:
+      - challenge-network
+    deploy:
+      mode: replicated
+      replicas: 2
+      labels: [APP=CHALLENGE]
+      restart_policy:
+        condition: on-failure
+        delay: 10s
+        max_attempts: 5
+        window: 120s
+
+networks: 
+  challenge-network:
+
+volumes:
+  challenge-postgres:

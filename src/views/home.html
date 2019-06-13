@@ -1,0 +1,26 @@
+<% include header.html %>
+<!-- Tab content -->
+<div id="create" class="tabcontent">
+    <input type="hidden" name="block" value="false">
+    <label>Create CPF <input id="createInput" name="cpf" maxlength="11"></label>
+    <input type="submit" value="ok" onclick="submit('create', 'createInput', false)">
+</div>
+
+<div id="block" class="tabcontent">
+    <input type="hidden" name="block" value="false">
+    <label>Block CPF <input id="blockInput" name="cpf"></label>
+    <input type="submit" value="ok" onclick="submit('block', 'blockInput', false)">
+</div>
+
+<div id="free" class="tabcontent">
+    <input type="hidden" name="block" value="true">
+    <label>Free CPF <input id="freeInput" name="cpf"></label>
+    <input type="submit" value="ok" onclick="submit('free', 'freeInput', false)">
+</div>
+
+<div id="status" class="tabcontent">
+    <h3>Status</h3>
+    <textarea name="stats" id="stats" cols="30" rows="10"></textarea>
+    <input type="button" value="status" onclick="status()">
+</div>
+<% include footer.html %>
